@@ -134,16 +134,20 @@ import puppeteer from "puppeteer";
         ".syllable",
         (el) => el.textContent
       )) as string;
-      console.log(syllable);
-      const word = words.filter(
-        (word: string) => word.includes(syllable) && word.length < 15
-      );
-      console.log(word[0]);
 
-      await frame.type(`input[maxLength="30"]`, word[0], {
-        delay: real.toString().includes("y") ? 0 : 100,
-      });
-      await page.keyboard.press("Enter");
+      const word = words.filter(
+        (word: string) => word.includes(syllable) && word.length > 2
+      );
+      console.log(word[Math.floor(Math.random() * word.length)]);
+
+      await frame.type(
+        `input[maxLength="30"]`,
+        word[Math.floor(Math.random() * word.length)],
+        {
+          delay: real.toString().includes("y") ? 100 : 0,
+        }
+      );
+      await page.keyboard.press("Enter", { delay: 50 });
     }
   } catch (e) {
     console.log(e);
