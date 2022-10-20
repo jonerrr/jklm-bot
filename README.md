@@ -1,7 +1,5 @@
 # jklm-bot
 
-Very bad jklm.fun bot made withi puppeteer and typescript.
+jklm.fun bot made with Puppeteer and Typescript.
 
-run `npm start` to start
-
-run `tsc` to build
+run `npm start` to start or `tsc` to build.
